@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "email": "bob@example.com",
+      "role": "user"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Getting Started with JSON Server",
+      "author": "John Doe",
+      "content": "JSON Server is a great tool for mocking APIs during development.",
+      "userId": 1,
+      "tags": ["api", "development", "tutorial"],
+      "createdAt": "2025-03-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "RESTful API Design Principles",
+      "author": "Jane Smith",
+      "content": "Learn the key principles of designing RESTful APIs for your applications.",
+      "userId": 2,
+      "tags": ["api", "rest", "design"],
+      "createdAt": "2025-03-20T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Frontend Development with React",
+      "author": "Bob Johnson",
+      "content": "React is a popular library for building user interfaces.",
+      "userId": 3,
+      "tags": ["react", "frontend", "javascript"],
+      "createdAt": "2025-03-25T09:15:00Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 2,
+      "content": "Great post! Very helpful.",
+      "createdAt": "2025-03-16T11:20:00Z"
+    },
+    {
+      "id": 2,
+      "postId": 1,
+      "userId": 3,
+      "content": "Thanks for sharing this information.",
+      "createdAt": "2025-03-17T08:45:00Z"
+    },
+    {
+      "id": 3,
+      "postId": 2,
+      "userId": 1,
+      "content": "I've been using these principles in my projects.",
+      "createdAt": "2025-03-21T16:10:00Z"
+    },
+    {
+      "id": 4,
+      "postId": 3,
+      "userId": 2,
+      "content": "React has changed the way I build UIs.",
+      "createdAt": "2025-03-26T13:30:00Z"
+    }
+  ],
+  "profiles": [
+    {
+      "id": 1,
+      "userId": 1,
+      "bio": "Full-stack developer with 10 years of experience",
+      "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+      "location": "San Francisco, CA"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "bio": "Frontend specialist focusing on React and Vue",
+      "avatar": "https://randomuser.me/api/portraits/women/2.jpg",
+      "location": "New York, NY"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "bio": "Backend developer with expertise in Node.js",
+      "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
+      "location": "Seattle, WA"
+    }
+  ]
+}

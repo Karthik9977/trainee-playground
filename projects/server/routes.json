@@ -1,0 +1,7 @@
+{
+  "/api/*": "/$1",
+  "/users/:id/profile": "/profiles?userId=:id",
+  "/users/:id/posts": "/posts?userId=:id",
+  "/posts/:id/comments": "/comments?postId=:id",
+  "/blog/:id": "/posts/:id"
+}
