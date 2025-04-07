@@ -1,13 +1,13 @@
 {
   "name": "trainee-assessment",
   "version": "1.0.0",
-  "description": "",
+  "description": "Playground for React and TypeScript",
+  "author": "Shibashis Deb",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.6.5"
 }

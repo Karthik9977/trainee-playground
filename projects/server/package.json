@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "JSON Server API",
+  "author": "Shibashis Deb",
   "type": "module",
   "scripts": {
     "start": "json-server --watch db.json --port 3000",
@@ -14,7 +15,6 @@
     "api",
     "mock"
   ],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "json-server": "1.0.0-beta.3"
