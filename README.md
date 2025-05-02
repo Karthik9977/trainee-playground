@@ -128,6 +128,18 @@ pnpm add -D typescript @types/node
 npx tsc --init
 ```
 
+## Reports
+The directory reports is created to document all the pdf, txt, doc, markdown, etc files prepared as reports to be submitted and reviewed. Sub directories can be created 
+for filename specific documents.
+
+```
+   reports/
+  ├── pdf/           # sub directory for PDF files
+  ├── doc/           # sub directory for docs
+  ├── json/          # sub directory for json files
+  └── ...            # any other as required!
+```
+
 ## Troubleshooting
 
 ### Common Issues
