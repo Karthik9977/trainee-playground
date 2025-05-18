@@ -5,15 +5,30 @@
   "author": "Shibashis Deb",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "build": "pnpm -r build",
+    "prepare": "husky",
+    "pre-commit": "lint-staged",
+    "type-check": "pnpm -r --filter=./projects/react-ts exec -- tsc --noEmit"
   },
   "keywords": [],
   "license": "ISC",
   "packageManager": "pnpm@10.6.5",
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "5.74.7",
     "@typescript-eslint/eslint-plugin": "8.32.1",
     "@typescript-eslint/parser": "8.32.1",
     "husky": "9.1.7",
-    "lint-staged": "15.4.3"
+    "lint-staged": "15.4.3",
+    "prettier": "3.4.2",
+    "typescript": "~5.7.2",
+    "eslint": "^9.27.0"
+  },
+  "lint-staged": {
+    "**/*.{json,css,md}": [
+      "prettier --write --loglevel=error"
+    ]
   }
 }

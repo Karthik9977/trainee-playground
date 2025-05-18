@@ -94,9 +94,9 @@ import './Button.css';
 
 export function Button({ variant = 'primary', children, onClick, ...props }) {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   return (
-    <button 
+    <button
       className={`button button-${variant} ${isHovered ? 'hovered' : ''}`}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
@@ -111,7 +111,7 @@ export function Button({ variant = 'primary', children, onClick, ...props }) {
 Button.propTypes = {
   variant: PropTypes.oneOf(['primary', 'secondary']),
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 ```
 
@@ -179,7 +179,7 @@ import { Button } from './Button';
 describe('Button Component', () => {
   test('renders with default props', () => {
     render(<Button>Click me</Button>);
-    
+
     const buttonElement = screen.getByTestId('button');
     expect(buttonElement).toBeInTheDocument();
     expect(buttonElement).toHaveTextContent('Click me');
@@ -188,7 +188,7 @@ describe('Button Component', () => {
 
   test('applies secondary variant class when specified', () => {
     render(<Button variant="secondary">Secondary Button</Button>);
-    
+
     const buttonElement = screen.getByTestId('button');
     expect(buttonElement).toHaveClass('button-secondary');
   });
@@ -196,7 +196,7 @@ describe('Button Component', () => {
   test('calls onClick when clicked', () => {
     const handleClick = jest.fn();
     render(<Button onClick={handleClick}>Click me</Button>);
-    
+
     fireEvent.click(screen.getByTestId('button'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
@@ -217,7 +217,7 @@ import App from './App';
 describe('App Component Counter Functionality', () => {
   test('renders with initial count of 0', () => {
     render(<App />);
-    
+
     const counterButton = screen.getByRole('button', { name: /count is 0/i });
     expect(counterButton).toBeInTheDocument();
     expect(counterButton).toHaveTextContent('count is 0');
@@ -225,13 +225,13 @@ describe('App Component Counter Functionality', () => {
 
   test('increments counter when button is clicked', () => {
     render(<App />);
-    
+
     const counterButton = screen.getByRole('button', { name: /count is 0/i });
-    
+
     // Click the button to increment counter
     fireEvent.click(counterButton);
     expect(counterButton).toHaveTextContent('count is 1');
-    
+
     // Click again
     fireEvent.click(counterButton);
     expect(counterButton).toHaveTextContent('count is 2');
@@ -241,25 +241,65 @@ describe('App Component Counter Functionality', () => {
 
 ### Test Configuration
 
-This project includes several important test configuration files:
+This project includes a comprehensive testing setup with several important configuration files:
 
-- `jest.config.js` - Configuration for Jest test runner
+- `jest.config.js` - Configuration for Jest test runner with coverage settings
 - `babel.config.js` - Babel setup for transpiling JSX in tests
-- `src/test/setupTests.js` - Global test setup file
-- `src/test/styleMock.js` - Mock for CSS imports
+- `src/test/setupTests.js` - Global test setup with Jest DOM extensions
+- `src/test/styleMock.js` - Mock for CSS imports in tests
 - `src/test/fileMock.js` - Mock for asset files (SVG, images, etc.)
+
+### Testing Best Practices
+
+This project follows these testing best practices:
+
+1. **Component Testing**: Each component should have its own test file following the pattern `ComponentName.test.jsx`
+
+2. **Test Organization**: Use `describe` blocks to group related tests and `test`/`it` blocks for individual test cases
+
+3. **Queries**: Prefer user-centric queries like `getByRole` and `getByText` over implementation details
+
+4. **Test IDs**: Use `data-testid` attributes sparingly, and only when more semantic queries aren't available
+
+5. **Import Structure**: When working with React Testing Library, use this pattern:
+
+   ```javascript
+   import { render, fireEvent } from '@testing-library/react';
+   import { screen } from '@testing-library/dom';
+   import '@testing-library/jest-dom';
+   ```
+
+6. **File Mocking**: The testing environment automatically handles CSS, SVG, and other asset imports
+
 ```
 
 ## ESLint Configuration
 
-This project includes an enhanced ESLint configuration with industry best practices for React. The configuration includes:
+This project includes an enhanced ESLint configuration with industry best practices for React. The configuration has been updated to support modern React patterns and comprehensive testing.
 
-- React-specific rules
-- Accessibility (a11y) rules
-- Import/export organization
-- React Hooks rules
+### Key Features
 
-Check the `eslint.config.js` file for the complete configuration.
+- **Modern React Support**:
+  - No need to import React for JSX (React 17+ automatic JSX runtime)
+  - Configured for React 19
+  - Rules optimized for functional component patterns
+
+- **Testing Environment**:
+  - Special ESLint configuration for test files
+  - Jest globals automatically recognized (`describe`, `test`, `expect`, etc.)
+  - Import resolver properly configured for testing utilities
+
+- **Code Quality Rules**:
+  - React-specific rules for component structure and props
+  - Accessibility (a11y) rules for better usability
+  - Import/export organization and sorting
+  - React Hooks rules to prevent common mistakes
+
+- **Performance Optimizations**:
+  - Selective linting targets in the monorepo
+  - Git hooks configured to only lint necessary files
+
+The complete configuration can be found in `eslint.config.js`.
 
 ## Best Practices
 
@@ -268,3 +308,4 @@ Check the `eslint.config.js` file for the complete configuration.
 - Keep components small and focused on a single responsibility
 - Use CSS modules or styled-components for component styling
 - Follow the ESLint rules for consistent code quality
+```

@@ -1,9 +1,14 @@
-import { ReactElement } from 'react';
-import { render, RenderOptions } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+/* eslint-disable react-refresh/only-export-components */
+import { render, type RenderOptions, type RenderResult } from "@testing-library/react";
+import userEvent, { type UserEvent } from "@testing-library/user-event";
+import type { ReactElement } from "react";
 
+// Define a custom render result interface that includes our user event
+interface CustomRenderResult extends RenderResult {
+  user: UserEvent;
+}
 // Add any providers here if needed (e.g., Redux, Router, Theme, etc.)
-const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
+export const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       {children}
@@ -11,18 +16,12 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const customRender = (
+export const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, 'wrapper'>
-) => {
+): CustomRenderResult => {
   return {
     user: userEvent.setup(),
     ...render(ui, { wrapper: AllTheProviders, ...options })
   };
 };
-
-// Re-export everything from testing-library
-export * from '@testing-library/react';
-
-// Override render method
-export { customRender as render };

@@ -87,9 +87,62 @@ cd projects/server/
 pnpm start
 ```
 
+## Code Quality Tools
+
+This monorepo is configured with several code quality tools to ensure consistent code style and catch errors early in the development process.
+
+### Git Hooks with Husky
+
+We use [Husky](https://typicode.github.io/husky/) to manage Git hooks. The following hooks are configured:
+
+- **pre-commit**: Runs linting and type checking on staged files before committing
+
+### Lint-Staged
+
+[Lint-staged](https://github.com/okonet/lint-staged) runs linters and formatters on files that are staged for commit. Configuration includes:
+
+- ESLint for JavaScript files in the following projects:
+  - `projects/react-js/**/*.{js,jsx}`
+  - `projects/javascript/**/*.{js,jsx}`
+- Prettier for formatting these file types across all projects:
+  - `projects/**/*.{json,css,md}`
+
+### Available Scripts
+
+The following scripts are available at the root level:
+
+```bash
+# Run tests across all projects
+pnpm test
+
+# Run linting on React.js and React TypeScript projects
+pnpm lint
+
+# Fix linting issues across projects with lint:fix configured
+pnpm lint:fix
+
+# Build all projects
+pnpm build
+
+# Run type checking for TypeScript projects only
+pnpm type-check
+```
+
+### ESLint Configuration
+
+The JavaScript projects (especially the react-js project) include an enhanced ESLint configuration with:
+
+- Support for modern React (no need to import React for JSX)
+- Special configuration for test files with Jest globals
+- React hooks linting rules
+- Import organization rules
+- Accessibility (a11y) guidelines
+
+Type checking is handled separately from linting and only runs on TypeScript projects.
+
 ## Creating a New Project
 
-The projects are created using [vite](https://vite.dev/guide/) 
+The projects are created using [vite](https://vite.dev/guide/)
 You can create a new project within the monorepo:
 
 ### React + TypeScript Project
@@ -129,7 +182,8 @@ npx tsc --init
 ```
 
 ## Reports
-The directory reports is created to document all the pdf, txt, doc, markdown, etc files prepared as reports to be submitted and reviewed. Sub directories can be created 
+
+The directory reports is created to document all the pdf, txt, doc, markdown, etc files prepared as reports to be submitted and reviewed. Sub directories can be created
 for filename specific documents.
 
 ```
