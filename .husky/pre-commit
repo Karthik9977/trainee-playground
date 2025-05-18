@@ -1,0 +1,5 @@
+# Run lint-staged to check files that are being committed
+pnpm pre-commit
+
+# Run type-check on TypeScript projects
+pnpm type-check

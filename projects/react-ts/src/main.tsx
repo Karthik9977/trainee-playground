@@ -11,7 +11,7 @@ const prepare = async () => {
   // Initialize mocks in development environment
   if (import.meta.env.MODE === 'development') {
     await initializeMocks()
-    console.log('MSW initialized')
+    console.trace('MSW initialized')
   }
 
   // Render the application

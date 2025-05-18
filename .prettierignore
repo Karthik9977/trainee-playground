@@ -1,0 +1,21 @@
+# Build directories
+**/dist
+**/build
+**/coverage
+
+# Node modules
+**/node_modules
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Cache directories
+.cache
+.parcel-cache
+
+# Misc
+.DS_Store
+.env
+.env.*
