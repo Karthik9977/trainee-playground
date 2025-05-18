@@ -1,2 +1,6 @@
 packages:
- - projects/*
+  - projects/*
+ignoredBuiltDependencies:
+  - '@swc/core'
+  - esbuild
+  - msw
